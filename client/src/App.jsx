@@ -8,7 +8,7 @@ function App() {
   // 🔥 Run Flow
   const handleRun = async () => {
     try {
-      const res = await fetch("https://ai-flow-app-ue9p.onrender.com/ask-ai", {
+      const res = await fetch("https://ai-flow-app-ue9p.onrender.com/api/ask-ai", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
