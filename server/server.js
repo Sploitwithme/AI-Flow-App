@@ -48,8 +48,8 @@ app.post("/api/ask-ai", async (req, res) => {
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "https://ai-flow-3m4m9034m-rahuls-projects-13170f4d.vercel.app", 
-          "X-Title": "AI Flow App",
+          "HTTP-Referer": "https://your-site.com", // ✅ important
+          "X-Title": "AI Flow App",               // ✅ important
         },
       }
     );
@@ -59,7 +59,7 @@ app.post("/api/ask-ai", async (req, res) => {
     });
 
   } catch (error) {
-    console.log("ERROR:", error.response?.data || error.message);
+    console.log("FULL ERROR:", error.response?.data || error.message); // 🔥 IMPORTANT
     res.status(500).json({ error: "AI failed" });
   }
 });
