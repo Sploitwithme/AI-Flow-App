@@ -34,22 +34,29 @@ app.post("/api/ask-ai", async (req, res) => {
       "https://openrouter.ai/api/v1/chat/completions",
       {
         model: "openrouter/auto",
-        messages: [{ role: "user", content: prompt }],
+        messages: [
+          {
+            role: "user",
+            content: prompt,
+          },
+        ],
       },
       {
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
+          "HTTP-Referer": "https://ai-flow-3m4m9034m-rahuls-projects-13170f4d.vercel.app", 
+          "X-Title": "AI Flow App",
         },
       }
     );
 
-    const aiText = response.data.choices[0].message.content;
-
-    res.json({ response: aiText });
+    res.json({
+      response: response.data.choices[0].message.content,
+    });
 
   } catch (error) {
-    console.log(error.message);
+    console.log("ERROR:", error.response?.data || error.message);
     res.status(500).json({ error: "AI failed" });
   }
 });
