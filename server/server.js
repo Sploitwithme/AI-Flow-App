@@ -21,6 +21,10 @@ const Prompt = mongoose.model("Prompt", {
   response: String,
 });
 
+app.get("/", (req, res) => {
+  res.send("API Running 🚀");
+});
+
 // AI Route
 app.post("/api/ask-ai", async (req, res) => {
   try {
