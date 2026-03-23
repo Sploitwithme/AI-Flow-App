@@ -8,7 +8,7 @@ function App() {
   // 🔥 Run Flow
   const handleRun = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/ask-ai", {
+      const res = await fetch("https://ai-flow-app-ue9p.onrender.com/ask-ai", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,7 +26,7 @@ function App() {
   // 💾 Save
   const handleSave = async () => {
     try {
-      await fetch("http://localhost:5000/api/save", {
+      await fetch("https://ai-flow-app-ue9p.onrender.com/api/save", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
