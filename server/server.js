@@ -7,7 +7,14 @@ require("dotenv").config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: [
+      "https://ai-flow-app-lemon.vercel.app",
+      "https://ai-flow-3m4m9034m-rahuls-projects-13170f4d.vercel.app",
+    ],
+    methods: ["GET", "POST"],
+    credentials: true,
+  }));
 app.use(express.json());
 
 // MongoDB
